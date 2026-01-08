@@ -4,21 +4,21 @@ import com.bdomanager.domain.item.model.ItemModel;
 
 public class RecipeItemModel {
     private Long id;
-    private ItemModel itemModel;
+    private Long idItem;
     private int quantity;
 
     public RecipeItemModel(Long id,
-                           ItemModel itemModel,
+                           Long idItem,
                            int quantity){
         this.id = id;
-        this.itemModel = itemModel;
+        this.idItem = idItem;
         this.quantity = quantity;
     }
 
 
-    public RecipeItemModel(ItemModel itemModel,
+    public RecipeItemModel(Long idItem,
                            int quantity){
-        this.itemModel = itemModel;
+        this.idItem = idItem;
         this.quantity = quantity;
     }
 
@@ -30,19 +30,19 @@ public class RecipeItemModel {
         this.id = id;
     }
 
-    public ItemModel getItem() {
-        return itemModel;
-    }
-
-    public void setItem(ItemModel itemModel) {
-        this.itemModel = itemModel;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
     }
 }
