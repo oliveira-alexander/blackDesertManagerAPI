@@ -1,8 +1,8 @@
 package com.bdomanager.application.useCases.recipe.impl;
 
 import com.bdomanager.application.useCases.recipe.GetRecipeByIdUseCase;
-import com.bdomanager.domain.models.Recipe;
-import com.bdomanager.domain.repositories.RecipeRepository;
+import com.bdomanager.domain.recipe.model.Recipe;
+import com.bdomanager.Application.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
 @Service

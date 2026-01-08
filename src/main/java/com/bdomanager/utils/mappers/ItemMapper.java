@@ -1,7 +1,7 @@
 package com.bdomanager.utils.mappers;
 
 import com.bdomanager.application.commands.item.*;
-import com.bdomanager.domain.models.Item;
+import com.bdomanager.domain.item.model.Item;
 import com.bdomanager.infrastructure.dtos.item.*;
 import com.bdomanager.infrastructure.entities.ItemEntity;
 

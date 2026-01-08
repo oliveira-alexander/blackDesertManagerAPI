@@ -1,15 +1,6 @@
 package com.bdomanager.application.services.impl;
 
-import com.bdomanager.infrastructure.dtos.item.ItemInputDTO;
-import com.bdomanager.infrastructure.dtos.item.ItemOutputDTO;
-import com.bdomanager.domain.models.Item;
-import com.bdomanager.infrastructure.exceptions.items.ItemAlreadyExists;
-import com.bdomanager.application.services.ItemService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ItemServiceImpl {

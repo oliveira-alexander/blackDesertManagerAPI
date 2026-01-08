@@ -1,8 +1,8 @@
 package com.bdomanager.application.useCases.item.impl;
 
 import com.bdomanager.application.useCases.item.GetAllItemsUseCase;
-import com.bdomanager.domain.models.Item;
-import com.bdomanager.domain.repositories.ItemRepository;
+import com.bdomanager.domain.item.model.Item;
+import com.bdomanager.Application.repositories.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

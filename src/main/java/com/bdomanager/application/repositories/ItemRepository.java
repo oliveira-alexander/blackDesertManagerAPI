@@ -1,9 +1,8 @@
-package com.bdomanager.domain.repositories;
+package com.bdomanager.Application.repositories;
 
-import com.bdomanager.domain.models.Item;
+import com.bdomanager.domain.item.model.Item;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ItemRepository {
     Item getById(Long id);

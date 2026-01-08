@@ -1,7 +1,7 @@
 package com.bdomanager.application.useCases.recipe.impl;
 
 import com.bdomanager.application.useCases.recipe.DeleteRecipeUseCase;
-import com.bdomanager.domain.repositories.RecipeRepository;
+import com.bdomanager.Application.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
 @Service

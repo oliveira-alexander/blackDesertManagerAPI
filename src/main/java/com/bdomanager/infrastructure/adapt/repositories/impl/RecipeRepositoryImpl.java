@@ -1,7 +1,7 @@
 package com.bdomanager.infrastructure.adapt.repositories.impl;
 
-import com.bdomanager.domain.models.Recipe;
-import com.bdomanager.domain.repositories.RecipeRepository;
+import com.bdomanager.domain.recipe.model.Recipe;
+import com.bdomanager.Application.repositories.RecipeRepository;
 import com.bdomanager.infrastructure.adapt.repositories.ItemJPARepository;
 import com.bdomanager.infrastructure.adapt.repositories.RecipeItemJPARepository;
 import com.bdomanager.infrastructure.adapt.repositories.RecipeJPARepository;
@@ -12,7 +12,6 @@ import com.bdomanager.utils.mappers.ItemMapper;
 import com.bdomanager.utils.mappers.RecipeMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

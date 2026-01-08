@@ -1,8 +1,8 @@
 package com.bdomanager.application.useCases.item.impl;
 
 import com.bdomanager.application.commands.item.UpdateItemCommand;
-import com.bdomanager.domain.models.Item;
-import com.bdomanager.domain.repositories.ItemRepository;
+import com.bdomanager.domain.item.model.Item;
+import com.bdomanager.Application.repositories.ItemRepository;
 import com.bdomanager.utils.mappers.ItemMapper;
 import org.springframework.stereotype.Service;
 

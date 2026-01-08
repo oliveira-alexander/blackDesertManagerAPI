@@ -1,7 +1,7 @@
 package com.bdomanager.application.useCases.item.impl;
 
 import com.bdomanager.application.useCases.item.DeleteItemUseCase;
-import com.bdomanager.domain.repositories.ItemRepository;
+import com.bdomanager.Application.repositories.ItemRepository;
 import org.springframework.stereotype.Service;
 
 @Service
