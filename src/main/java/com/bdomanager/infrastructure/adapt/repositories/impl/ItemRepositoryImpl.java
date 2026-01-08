@@ -1,7 +1,7 @@
 package com.bdomanager.infrastructure.adapt.repositories.impl;
 
-import com.bdomanager.domain.item.model.Item;
-import com.bdomanager.Application.repositories.ItemRepository;
+import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.application.item.adapters.repository.ItemRepository;
 import com.bdomanager.infrastructure.adapt.repositories.ItemJPARepository;
 import com.bdomanager.infrastructure.entities.ItemEntity;
 import com.bdomanager.utils.mappers.ItemMapper;
@@ -18,12 +18,12 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
     @Override
-    public Item getById(Long id) {
+    public ItemModel getById(Long id) {
         return ItemMapper.itemEntityToItem(jpaRepository.findById(id).get());
     }
 
     @Override
-    public List<Item> getAll() {
+    public List<ItemModel> getAll() {
         List<ItemEntity> itemsEntity = jpaRepository.findAll();
         return itemsEntity.stream()
                 .map(ItemMapper::itemEntityToItem)
@@ -31,16 +31,16 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
     @Override
-    public Item create(Item item) {
-        ItemEntity newItem = ItemMapper.itemToItemEntity(item);
+    public ItemModel create(ItemModel itemModel) {
+        ItemEntity newItem = ItemMapper.itemToItemEntity(itemModel);
         jpaRepository.save(newItem);
 
         return ItemMapper.itemEntityToItem(newItem);
     }
 
     @Override
-    public Item update(Item item) {
-        ItemEntity updatingItem = ItemMapper.itemToItemEntity(item);
+    public ItemModel update(ItemModel itemModel) {
+        ItemEntity updatingItem = ItemMapper.itemToItemEntity(itemModel);
         jpaRepository.save(updatingItem);
 
         return ItemMapper.itemEntityToItem(updatingItem);

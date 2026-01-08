@@ -1,7 +1,7 @@
 package com.bdomanager.infrastructure.adapt.repositories.impl;
 
-import com.bdomanager.domain.recipe.model.Recipe;
-import com.bdomanager.Application.repositories.RecipeRepository;
+import com.bdomanager.domain.recipe.model.RecipeModel;
+import com.bdomanager.application.recipe.adapters.repository.RecipeRepository;
 import com.bdomanager.infrastructure.adapt.repositories.ItemJPARepository;
 import com.bdomanager.infrastructure.adapt.repositories.RecipeItemJPARepository;
 import com.bdomanager.infrastructure.adapt.repositories.RecipeJPARepository;
@@ -31,7 +31,7 @@ public class RecipeRepositoryImpl implements RecipeRepository {
 
 
     @Override
-    public List<Recipe> getAll() {
+    public List<RecipeModel> getAll() {
         List<RecipeEntity> recipesEntity = recipeRepository.findAll();
 
         return recipesEntity.stream()
@@ -40,16 +40,16 @@ public class RecipeRepositoryImpl implements RecipeRepository {
     }
 
     @Override
-    public Recipe getById(Long id) {
+    public RecipeModel getById(Long id) {
         return RecipeMapper.recipeEntityToRecipeModel(recipeRepository.findById(id).get());
     }
 
     @Override
-    public Recipe create(Recipe recipe) {
-        RecipeEntity entity = RecipeMapper.recipeModelToRecipeEntity(recipe);
+    public RecipeModel create(RecipeModel recipeModel) {
+        RecipeEntity entity = RecipeMapper.recipeModelToRecipeEntity(recipeModel);
         recipeRepository.save(entity);
 
-        recipe.getItems().stream()
+        recipeModel.getItems().stream()
                 .forEach(item -> {
                     ItemEntity itemEntity = ItemMapper.itemToItemEntity(item.getItem());
 
@@ -61,8 +61,8 @@ public class RecipeRepositoryImpl implements RecipeRepository {
     }
 
     @Override
-    public Recipe update(Recipe recipe) {
-        RecipeEntity updatingRecipe = RecipeMapper.recipeModelToRecipeEntity(recipe);
+    public RecipeModel update(RecipeModel recipeModel) {
+        RecipeEntity updatingRecipe = RecipeMapper.recipeModelToRecipeEntity(recipeModel);
         recipeRepository.save(updatingRecipe);
         return RecipeMapper.recipeEntityToRecipeModel(updatingRecipe);
     }
