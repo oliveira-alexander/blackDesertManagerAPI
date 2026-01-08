@@ -3,7 +3,7 @@ package com.bdomanager.application.recipe.useCases.impl;
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
 import com.bdomanager.application.recipe.mapper.RecipeApplicationMapper;
 import com.bdomanager.application.recipe.useCases.UpdateRecipeUseCase;
-import com.bdomanager.domain.recipe.model.RecipeModel;
+import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.application.recipe.adapters.repository.RecipeRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class UpdateRecipeUseCaseImpl implements UpdateRecipeUseCase {
     }
 
     @Override
-    public RecipeModel execute(UpdateRecipeCommand command) {
+    public Recipe execute(UpdateRecipeCommand command) {
         return repository.update(RecipeApplicationMapper.updateCommandToModel(command));
     }
 }

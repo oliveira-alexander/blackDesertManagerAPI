@@ -1,4 +1,4 @@
-package com.bdomanager.Infrastructure.utils.exceptions.items;
+package com.bdomanager.infrastructure.utils.exceptions.items;
 
 public class ItemAlreadyExists extends RuntimeException {
     public ItemAlreadyExists(){ super("O item já existe!"); }

@@ -1,23 +1,23 @@
-package com.bdomanager.domain.item.model;
+package com.bdomanager.domain.item;
 
-public class ItemModel {
+public class Item {
     private Long id;
     private String description;
     private float marketPrice;
     private float productionCost;
 
-    public ItemModel(String description,
-                     float marketPrice,
-                     float productionCost){
+    public Item(String description,
+                float marketPrice,
+                float productionCost){
         this.description = description;
         this.marketPrice = marketPrice;
         this.productionCost = productionCost;
     }
 
-    public ItemModel(Long id,
-                     String description,
-                     float marketPrice,
-                     float productionCost) {
+    public Item(Long id,
+                String description,
+                float marketPrice,
+                float productionCost) {
         this.id = id;
         this.description = description;
         this.marketPrice = marketPrice;

@@ -3,7 +3,7 @@ package com.bdomanager.application.item.useCases.impl;
 import com.bdomanager.application.item.commands.UpdateItemCommand;
 import com.bdomanager.application.item.mapper.ItemApplicationMapper;
 import com.bdomanager.application.item.useCases.UpdateItemUseCase;
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +17,8 @@ public class UpdateItemUseCaseImpl implements UpdateItemUseCase {
     }
 
     @Override
-    public ItemModel execute(UpdateItemCommand command) {
-        ItemModel itemModel = ItemApplicationMapper.updateCommandToModel(command);
-        return this.repository.update(itemModel);
+    public Item execute(UpdateItemCommand command) {
+        Item item = ItemApplicationMapper.updateCommandToModel(command);
+        return this.repository.update(item);
     }
 }

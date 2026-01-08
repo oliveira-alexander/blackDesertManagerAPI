@@ -1,7 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
 import com.bdomanager.application.item.useCases.GetAllItemsUseCase;
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class GetAllItemsUseCaseImpl implements GetAllItemsUseCase {
     }
 
     @Override
-    public List<ItemModel> execute() {
+    public List<Item> execute() {
         return repository.getAll();
     }
 }

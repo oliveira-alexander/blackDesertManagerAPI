@@ -1,6 +1,6 @@
-package com.bdomanager.Infrastructure.recipeItem.adapters.repository;
+package com.bdomanager.infrastructure.recipeItem.adapters.repository;
 
-import com.bdomanager.Infrastructure.recipeItem.entity.RecipeItemEntity;
+import com.bdomanager.infrastructure.recipeItem.entity.RecipeItemEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

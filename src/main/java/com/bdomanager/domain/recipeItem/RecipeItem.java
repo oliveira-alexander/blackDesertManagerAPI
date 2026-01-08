@@ -1,23 +1,21 @@
-package com.bdomanager.domain.recipeItem.model;
+package com.bdomanager.domain.recipeItem;
 
-import com.bdomanager.domain.item.model.ItemModel;
-
-public class RecipeItemModel {
+public class RecipeItem {
     private Long id;
     private Long idItem;
     private int quantity;
 
-    public RecipeItemModel(Long id,
-                           Long idItem,
-                           int quantity){
+    public RecipeItem(Long id,
+                      Long idItem,
+                      int quantity){
         this.id = id;
         this.idItem = idItem;
         this.quantity = quantity;
     }
 
 
-    public RecipeItemModel(Long idItem,
-                           int quantity){
+    public RecipeItem(Long idItem,
+                      int quantity){
         this.idItem = idItem;
         this.quantity = quantity;
     }

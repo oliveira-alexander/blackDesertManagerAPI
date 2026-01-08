@@ -1,9 +1,9 @@
 package com.bdomanager.application.recipeItem.adapters.repository;
 
-import com.bdomanager.domain.recipeItem.model.RecipeItemModel;
+import com.bdomanager.domain.recipeItem.RecipeItem;
 
 public interface RecipeItemRepository {
-    RecipeItemModel addRecipeItem(RecipeItemModel model);
-    RecipeItemModel updateRecipeItem(RecipeItemModel model);
-    void deleteRecipeItem(Long idRecipe, RecipeItemModel model);
+    RecipeItem addRecipeItem(RecipeItem model);
+    RecipeItem updateRecipeItem(RecipeItem model);
+    void deleteRecipeItem(Long idRecipe, RecipeItem model);
 }

@@ -1,10 +1,10 @@
-package com.bdomanager.Infrastructure.recipeItem.mapper;
+package com.bdomanager.infrastructure.recipeItem.mapper;
 
-import com.bdomanager.Infrastructure.recipeItem.dtos.RecipeItemInputDTO;
-import com.bdomanager.Infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
+import com.bdomanager.infrastructure.recipeItem.dtos.RecipeItemInputDTO;
+import com.bdomanager.infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
 import com.bdomanager.application.recipeItem.commands.CreateRecipeItemCommand;
 import com.bdomanager.application.recipeItem.commands.UpdateRecipeItemCommand;
-import com.bdomanager.domain.recipeItem.model.RecipeItemModel;
+import com.bdomanager.domain.recipeItem.RecipeItem;
 
 public class RecipeItemInfrastructureMapper {
 
@@ -23,7 +23,7 @@ public class RecipeItemInfrastructureMapper {
 
      // Model -> DTO
 
-        public static RecipeItemOutputDTO modelToDTO(RecipeItemModel model){
+        public static RecipeItemOutputDTO modelToDTO(RecipeItem model){
             return new RecipeItemOutputDTO(model.getIdItem(), model.getQuantity());
         }
 }

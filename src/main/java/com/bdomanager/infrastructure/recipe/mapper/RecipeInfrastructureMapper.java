@@ -1,19 +1,16 @@
-package com.bdomanager.Infrastructure.recipe.mapper;
+package com.bdomanager.infrastructure.recipe.mapper;
 
-import com.bdomanager.Infrastructure.item.mapper.ItemInfrastructureMapper;
-import com.bdomanager.Infrastructure.recipe.dtos.RecipeInputDTO;
-import com.bdomanager.Infrastructure.recipe.dtos.RecipeOutputDTO;
-import com.bdomanager.Infrastructure.recipe.entity.RecipeEntity;
-import com.bdomanager.Infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
-import com.bdomanager.Infrastructure.recipeItem.entity.RecipeItemEntity;
-import com.bdomanager.Infrastructure.recipeItem.mapper.RecipeItemInfrastructureMapper;
+import com.bdomanager.infrastructure.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.infrastructure.recipe.dtos.RecipeOutputDTO;
+import com.bdomanager.infrastructure.recipe.entity.RecipeEntity;
+import com.bdomanager.infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
+import com.bdomanager.infrastructure.recipeItem.mapper.RecipeItemInfrastructureMapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
 import com.bdomanager.application.recipeItem.commands.CreateRecipeItemCommand;
 import com.bdomanager.application.recipeItem.commands.UpdateRecipeItemCommand;
-import com.bdomanager.domain.item.model.ItemModel;
-import com.bdomanager.domain.recipe.model.RecipeModel;
-import com.bdomanager.domain.recipeItem.model.RecipeItemModel;
+import com.bdomanager.domain.recipe.Recipe;
+import com.bdomanager.domain.recipeItem.RecipeItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,19 +41,19 @@ public class RecipeInfrastructureMapper {
 
         // Entity -> Model
 
-            public static RecipeModel entityToModel(RecipeEntity entity){
-                List<RecipeItemModel> itemsModel = new ArrayList<>();
+            public static Recipe entityToModel(RecipeEntity entity){
+                List<RecipeItem> itemsModel = new ArrayList<>();
 
                 entity.getItems().forEach(item -> {
-                    itemsModel.add(new RecipeItemModel(item.getId(), item.getId(), item.getQuantity()));
+                    itemsModel.add(new RecipeItem(item.getId(), item.getId(), item.getQuantity()));
                 });
 
-                return new RecipeModel(entity.getId(), entity.getDescription(), itemsModel);
+                return new Recipe(entity.getId(), entity.getDescription(), itemsModel);
             }
 
         // Model -> DTO
 
-            public static RecipeOutputDTO modelToDTO(RecipeModel model){
+            public static RecipeOutputDTO modelToDTO(Recipe model){
                 List<RecipeItemOutputDTO> items = model.getItems().stream().map(RecipeItemInfrastructureMapper::modelToDTO).toList();
 
                 return new RecipeOutputDTO(model.getId(), model.getDescription(), items);

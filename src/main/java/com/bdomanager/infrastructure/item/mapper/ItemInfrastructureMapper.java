@@ -1,11 +1,11 @@
-package com.bdomanager.Infrastructure.item.mapper;
+package com.bdomanager.infrastructure.item.mapper;
 
-import com.bdomanager.Infrastructure.item.dtos.ItemInputDTO;
-import com.bdomanager.Infrastructure.item.dtos.ItemOutputDTO;
-import com.bdomanager.Infrastructure.item.entity.ItemEntity;
+import com.bdomanager.infrastructure.item.dtos.ItemInputDTO;
+import com.bdomanager.infrastructure.item.dtos.ItemOutputDTO;
+import com.bdomanager.infrastructure.item.entity.ItemEntity;
 import com.bdomanager.application.item.commands.CreateItemCommand;
 import com.bdomanager.application.item.commands.UpdateItemCommand;
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 
 public class ItemInfrastructureMapper {
 
@@ -26,7 +26,7 @@ public class ItemInfrastructureMapper {
 
     // Model -> Entity
 
-        public static ItemEntity modelToEntity(ItemModel model){
+        public static ItemEntity modelToEntity(Item model){
             return new ItemEntity(model.getId(),
                                   model.getDescription(),
                                   model.getMarketPrice(),
@@ -35,8 +35,8 @@ public class ItemInfrastructureMapper {
 
     // Entity -> Model
 
-        public static ItemModel entityToModel(ItemEntity entity){
-            return new ItemModel(entity.getId(),
+        public static Item entityToModel(ItemEntity entity){
+            return new Item(entity.getId(),
                                  entity.getDescription(),
                                  entity.getMarketPrice(),
                                  entity.getProductionCost());
@@ -44,7 +44,7 @@ public class ItemInfrastructureMapper {
 
     // Model -> DTO (Output)
 
-        public static ItemOutputDTO modelToDTO(ItemModel model){
+        public static ItemOutputDTO modelToDTO(Item model){
             return new ItemOutputDTO(model.getId(),
                                      model.getDescription(),
                                      model.getMarketPrice(),

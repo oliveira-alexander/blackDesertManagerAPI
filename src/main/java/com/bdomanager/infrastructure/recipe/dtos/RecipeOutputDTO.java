@@ -1,6 +1,6 @@
-package com.bdomanager.Infrastructure.recipe.dtos;
+package com.bdomanager.infrastructure.recipe.dtos;
 
-import com.bdomanager.Infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
+import com.bdomanager.infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
 
 import java.util.List;
 

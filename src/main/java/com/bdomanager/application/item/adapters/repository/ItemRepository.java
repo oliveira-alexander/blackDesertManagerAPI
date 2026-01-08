@@ -1,14 +1,14 @@
 package com.bdomanager.application.item.adapters.repository;
 
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 
 import java.util.List;
 
 public interface ItemRepository {
-    ItemModel getById(Long id);
-    List<ItemModel> getAll();
+    Item getById(Long id);
+    List<Item> getAll();
 
-    ItemModel create(ItemModel itemModel);
-    ItemModel update(ItemModel itemModel);
+    Item create(Item item);
+    Item update(Item item);
     void delete(Long id);
 }

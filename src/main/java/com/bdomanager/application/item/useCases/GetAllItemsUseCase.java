@@ -1,9 +1,9 @@
 package com.bdomanager.application.item.useCases;
 
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 
 import java.util.List;
 
 public interface GetAllItemsUseCase {
-    List<ItemModel> execute();
+    List<Item> execute();
 }

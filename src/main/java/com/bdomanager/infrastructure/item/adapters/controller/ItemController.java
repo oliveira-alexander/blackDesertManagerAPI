@@ -1,8 +1,8 @@
-package com.bdomanager.Infrastructure.item.adapters.controller;
+package com.bdomanager.infrastructure.item.adapters.controller;
 
-import com.bdomanager.Infrastructure.item.dtos.ItemInputDTO;
-import com.bdomanager.Infrastructure.item.dtos.ItemOutputDTO;
-import com.bdomanager.Infrastructure.item.mapper.ItemInfrastructureMapper;
+import com.bdomanager.infrastructure.item.dtos.ItemInputDTO;
+import com.bdomanager.infrastructure.item.dtos.ItemOutputDTO;
+import com.bdomanager.infrastructure.item.mapper.ItemInfrastructureMapper;
 import com.bdomanager.application.item.commands.CreateItemCommand;
 import com.bdomanager.application.item.commands.UpdateItemCommand;
 import com.bdomanager.application.item.useCases.*;
