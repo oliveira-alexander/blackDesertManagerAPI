@@ -1,11 +1,9 @@
 package com.bdomanager.infrastructure.adapt.controllers;
 
-import com.bdomanager.application.commands.recipe.CreateRecipeCommand;
-import com.bdomanager.application.useCases.recipe.*;
+import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
+import com.bdomanager.application.recipe.useCases.*;
 import com.bdomanager.infrastructure.dtos.recipe.*;
 import com.bdomanager.utils.mappers.RecipeMapper;
-import org.hibernate.sql.Update;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

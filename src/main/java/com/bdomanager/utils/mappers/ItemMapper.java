@@ -1,7 +1,8 @@
 package com.bdomanager.utils.mappers;
 
-import com.bdomanager.application.commands.item.*;
-import com.bdomanager.domain.item.model.Item;
+import com.bdomanager.application.item.commands.CreateItemCommand;
+import com.bdomanager.application.item.commands.UpdateItemCommand;
+import com.bdomanager.domain.item.model.ItemModel;
 import com.bdomanager.infrastructure.dtos.item.*;
 import com.bdomanager.infrastructure.entities.ItemEntity;
 
@@ -24,14 +25,14 @@ public final class ItemMapper {
 
     // Command -> Domain Model
 
-    public static Item createItemCommandToItem(CreateItemCommand command){
-        return new Item(command.description(),
+    public static ItemModel createItemCommandToItem(CreateItemCommand command){
+        return new ItemModel(command.description(),
                         command.marketPrice(),
                         command.productionCost());
     }
 
-    public static Item updateItemCommandToItem(UpdateItemCommand command){
-        return new Item(command.id(),
+    public static ItemModel updateItemCommandToItem(UpdateItemCommand command){
+        return new ItemModel(command.id(),
                         command.description(),
                         command.marketPrice(),
                         command.productionCost());
@@ -39,17 +40,17 @@ public final class ItemMapper {
 
     // Domain Model -> Infrastructure Entity
 
-    public static ItemEntity itemToItemEntity(Item item){
-        return new ItemEntity(item.getId(),
-                              item.getDescription(),
-                              item.getMarketPrice(),
-                              item.getProductionCost());
+    public static ItemEntity itemToItemEntity(ItemModel itemModel){
+        return new ItemEntity(itemModel.getId(),
+                              itemModel.getDescription(),
+                              itemModel.getMarketPrice(),
+                              itemModel.getProductionCost());
     }
 
     // Infrastructure Entity -> Domain Model
 
-    public static Item itemEntityToItem(ItemEntity entity){
-        return new Item(entity.getId(),
+    public static ItemModel itemEntityToItem(ItemEntity entity){
+        return new ItemModel(entity.getId(),
                         entity.getDescription(),
                         entity.getMarketPrice(),
                         entity.getProductionCost());
@@ -57,10 +58,10 @@ public final class ItemMapper {
 
     // Domain Model -> Output DTO
 
-    public static ItemOutputDTO itemToOutputDTO(Item item){
-        return new ItemOutputDTO(item.getId(),
-                                 item.getDescription(),
-                                 item.getMarketPrice(),
-                                 item.getProductionCost());
+    public static ItemOutputDTO itemToOutputDTO(ItemModel itemModel){
+        return new ItemOutputDTO(itemModel.getId(),
+                                 itemModel.getDescription(),
+                                 itemModel.getMarketPrice(),
+                                 itemModel.getProductionCost());
     }
 }

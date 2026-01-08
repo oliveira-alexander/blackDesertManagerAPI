@@ -1,0 +1,24 @@
+package com.bdomanager.application.item.useCases.impl;
+
+import com.bdomanager.application.item.commands.UpdateItemCommand;
+import com.bdomanager.application.item.useCases.UpdateItemUseCase;
+import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.application.item.adapters.repository.ItemRepository;
+import com.bdomanager.utils.mappers.ItemMapper;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UpdateItemUseCaseImpl implements UpdateItemUseCase {
+
+    private final ItemRepository repository;
+
+    public UpdateItemUseCaseImpl(ItemRepository repository){
+        this.repository = repository;
+    }
+
+    @Override
+    public ItemModel execute(UpdateItemCommand command) {
+        ItemModel itemModel = ItemMapper.updateItemCommandToItem(command);
+        return this.repository.update(itemModel);
+    }
+}

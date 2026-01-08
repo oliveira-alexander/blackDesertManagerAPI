@@ -1,10 +1,10 @@
 package com.bdomanager.utils.mappers;
 
-import com.bdomanager.application.commands.recipe.CreateRecipeCommand;
-import com.bdomanager.application.commands.recipe.UpdateRecipeCommand;
-import com.bdomanager.application.commands.recipeItem.CreateRecipeItemCommand;
-import com.bdomanager.domain.recipe.model.Recipe;
-import com.bdomanager.domain.recipeItem.model.RecipeItem;
+import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
+import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
+import com.bdomanager.application.recipeItem.commands.CreateRecipeItemCommand;
+import com.bdomanager.domain.recipe.model.RecipeModel;
+import com.bdomanager.domain.recipeItem.model.RecipeItemModel;
 import com.bdomanager.infrastructure.adapt.repositories.ItemJPARepository;
 import com.bdomanager.infrastructure.dtos.recipe.RecipeInputDTO;
 import com.bdomanager.infrastructure.dtos.recipe.RecipeOutputDTO;
@@ -49,44 +49,44 @@ public class RecipeMapper {
 
     // Command -> Model Domain
 
-    public static Recipe createRecipeCommandToRecipeModel(CreateRecipeCommand command){
-        Recipe recipe = new Recipe(command.description(), null);
-        List<RecipeItem> recipeItems = new ArrayList<>();
+    public static RecipeModel createRecipeCommandToRecipeModel(CreateRecipeCommand command){
+        RecipeModel recipeModel = new RecipeModel(command.description(), null);
+        List<RecipeItemModel> recipeItemModels = new ArrayList<>();
 
         command.items().stream()
                 .forEach(item -> {
-                    recipeItems.add(
-                            new RecipeItem(
+                    recipeItemModels.add(
+                            new RecipeItemModel(
                                     ItemMapper.itemEntityToItem(itemRepository.findById(item.itemId()).get()),
                                     item.quantity())
                     );
                 });
 
-        recipe.setItems(recipeItems);
+        recipeModel.setItems(recipeItemModels);
 
-        return recipe;
+        return recipeModel;
     }
 
-    public static Recipe updateRecipeCommandToRecipeModel(UpdateRecipeCommand command){
-        Recipe recipe = new Recipe(command.id(), command.description(), null);
-        List<RecipeItem> recipeItems = new ArrayList<>();
+    public static RecipeModel updateRecipeCommandToRecipeModel(UpdateRecipeCommand command){
+        RecipeModel recipeModel = new RecipeModel(command.id(), command.description(), null);
+        List<RecipeItemModel> recipeItemModels = new ArrayList<>();
 
         command.items().stream()
                 .forEach(item -> {
-                    recipeItems.add(
-                            new RecipeItem(
+                    recipeItemModels.add(
+                            new RecipeItemModel(
                                     ItemMapper.itemEntityToItem(itemRepository.findById(item.itemId()).get()),
                                     item.quantity())
                     );
                 });
 
-        recipe.setItems(recipeItems);
+        recipeModel.setItems(recipeItemModels);
 
-        return recipe;
+        return recipeModel;
     }
 
     // Model domain -> Entity Infra
-    public static RecipeEntity recipeModelToRecipeEntity(Recipe model){
+    public static RecipeEntity recipeModelToRecipeEntity(RecipeModel model){
         List<RecipeItemEntity> recipeItemsEntity = new ArrayList<>();
 
         RecipeEntity recipe = new RecipeEntity(model.getId(), model.getDescription());
@@ -106,26 +106,26 @@ public class RecipeMapper {
 
     // Entity Infra -> Model Domain
 
-    public static Recipe recipeEntityToRecipeModel(RecipeEntity entity){
-        Recipe recipe = new Recipe(entity.getId(), entity.getDescription(), null);
-        List<RecipeItem> recipeItems = new ArrayList<>();
+    public static RecipeModel recipeEntityToRecipeModel(RecipeEntity entity){
+        RecipeModel recipeModel = new RecipeModel(entity.getId(), entity.getDescription(), null);
+        List<RecipeItemModel> recipeItemModels = new ArrayList<>();
 
         entity.getItems().stream().forEach(item -> {
             var itemModel = ItemMapper.itemEntityToItem(item.getItem());
 
-            recipeItems.add(
-                    new RecipeItem(itemModel, item.getQuantity())
+            recipeItemModels.add(
+                    new RecipeItemModel(itemModel, item.getQuantity())
             );
         });
 
-        recipe.setItems(recipeItems);
+        recipeModel.setItems(recipeItemModels);
 
-        return recipe;
+        return recipeModel;
     }
 
     // Model Domain -> Output DTO
 
-    public static RecipeOutputDTO recipeModelToRecipeDTO(Recipe model){
+    public static RecipeOutputDTO recipeModelToRecipeDTO(RecipeModel model){
         List<RecipeItemOutputDTO> recipeItems = new ArrayList<>();
 
         model.getItems().stream()

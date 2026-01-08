@@ -1,13 +1,12 @@
 package com.bdomanager.infrastructure.adapt.controllers;
 
-import com.bdomanager.application.commands.item.CreateItemCommand;
-import com.bdomanager.application.commands.item.UpdateItemCommand;
-import com.bdomanager.application.useCases.item.*;
+import com.bdomanager.application.item.commands.CreateItemCommand;
+import com.bdomanager.application.item.commands.UpdateItemCommand;
+import com.bdomanager.application.item.useCases.*;
 import com.bdomanager.infrastructure.dtos.item.*;
 import com.bdomanager.utils.mappers.ItemMapper;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
