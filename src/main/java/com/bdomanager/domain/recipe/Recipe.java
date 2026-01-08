@@ -1,25 +1,25 @@
-package com.bdomanager.domain.recipe.model;
+package com.bdomanager.domain.recipe;
 
-import com.bdomanager.domain.recipeItem.model.RecipeItemModel;
+import com.bdomanager.domain.recipeItem.RecipeItem;
 
 import java.util.List;
 
-public class RecipeModel {
+public class Recipe {
     private Long id;
     private String description;
-    private List<RecipeItemModel> items;
+    private List<RecipeItem> items;
 
-    public RecipeModel(Long id,
-                       String description,
-                       List<RecipeItemModel> items)
+    public Recipe(Long id,
+                  String description,
+                  List<RecipeItem> items)
     {
         this.id = id;
         this.description = description;
         this.items = items;
     }
 
-    public RecipeModel(String description,
-                       List<RecipeItemModel> items)
+    public Recipe(String description,
+                  List<RecipeItem> items)
     {
         this.description = description;
         this.items = items;
@@ -41,11 +41,11 @@ public class RecipeModel {
         this.description = description;
     }
 
-    public List<RecipeItemModel> getItems() {
+    public List<RecipeItem> getItems() {
         return items;
     }
 
-    public void setItems(List<RecipeItemModel> items) {
+    public void setItems(List<RecipeItem> items) {
         this.items = items;
     }
 }

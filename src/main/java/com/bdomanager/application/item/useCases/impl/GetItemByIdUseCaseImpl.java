@@ -1,7 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
 import com.bdomanager.application.item.useCases.GetItemByIdUseCase;
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class GetItemByIdUseCaseImpl implements GetItemByIdUseCase {
     }
 
     @Override
-    public ItemModel execute(Long id) {
+    public Item execute(Long id) {
         return repository.getById(id);
     }
 }

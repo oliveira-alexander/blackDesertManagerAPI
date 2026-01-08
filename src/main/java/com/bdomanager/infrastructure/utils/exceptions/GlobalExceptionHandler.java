@@ -1,6 +1,6 @@
-package com.bdomanager.Infrastructure.utils.exceptions;
+package com.bdomanager.infrastructure.utils.exceptions;
 
-import com.bdomanager.Infrastructure.utils.exceptions.items.ItemAlreadyExists;
+import com.bdomanager.infrastructure.utils.exceptions.items.ItemAlreadyExists;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

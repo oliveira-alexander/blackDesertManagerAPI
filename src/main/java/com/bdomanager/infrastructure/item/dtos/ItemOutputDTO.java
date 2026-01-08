@@ -1,4 +1,4 @@
-package com.bdomanager.Infrastructure.item.dtos;
+package com.bdomanager.infrastructure.item.dtos;
 
 public record ItemOutputDTO(Long id,
                             String description,

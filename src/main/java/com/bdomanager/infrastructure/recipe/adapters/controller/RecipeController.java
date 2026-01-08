@@ -1,8 +1,8 @@
-package com.bdomanager.Infrastructure.recipe.adapters.controller;
+package com.bdomanager.infrastructure.recipe.adapters.controller;
 
-import com.bdomanager.Infrastructure.recipe.dtos.RecipeInputDTO;
-import com.bdomanager.Infrastructure.recipe.dtos.RecipeOutputDTO;
-import com.bdomanager.Infrastructure.recipe.mapper.RecipeInfrastructureMapper;
+import com.bdomanager.infrastructure.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.infrastructure.recipe.dtos.RecipeOutputDTO;
+import com.bdomanager.infrastructure.recipe.mapper.RecipeInfrastructureMapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.useCases.*;
 import org.springframework.web.bind.annotation.*;

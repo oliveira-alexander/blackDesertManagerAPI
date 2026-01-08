@@ -1,4 +1,4 @@
-package com.bdomanager.Infrastructure.recipeItem.dtos;
+package com.bdomanager.infrastructure.recipeItem.dtos;
 
 import jakarta.annotation.Nullable;
 

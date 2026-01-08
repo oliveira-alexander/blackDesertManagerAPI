@@ -1,7 +1,7 @@
 package com.bdomanager.application.recipe.useCases.impl;
 
 import com.bdomanager.application.recipe.useCases.GetAllRecipesUseCase;
-import com.bdomanager.domain.recipe.model.RecipeModel;
+import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.application.recipe.adapters.repository.RecipeRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class GetAllRecipesUseCaseImpl implements GetAllRecipesUseCase {
     }
 
     @Override
-    public List<RecipeModel> execute() {
+    public List<Recipe> execute() {
         return repository.getAll();
     }
 }

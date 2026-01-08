@@ -1,6 +1,6 @@
-package com.bdomanager.Infrastructure.item.entity;
+package com.bdomanager.infrastructure.item.entity;
 
-import com.bdomanager.Infrastructure.recipeItem.entity.RecipeItemEntity;
+import com.bdomanager.infrastructure.recipeItem.entity.RecipeItemEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

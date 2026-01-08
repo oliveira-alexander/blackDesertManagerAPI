@@ -1,10 +1,10 @@
-package com.bdomanager.Infrastructure.item.adapters.repository.impl;
+package com.bdomanager.infrastructure.item.adapters.repository.impl;
 
-import com.bdomanager.Infrastructure.item.mapper.ItemInfrastructureMapper;
-import com.bdomanager.domain.item.model.ItemModel;
+import com.bdomanager.infrastructure.item.mapper.ItemInfrastructureMapper;
+import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
-import com.bdomanager.Infrastructure.item.adapters.repository.ItemJPARepository;
-import com.bdomanager.Infrastructure.item.entity.ItemEntity;
+import com.bdomanager.infrastructure.item.adapters.repository.ItemJPARepository;
+import com.bdomanager.infrastructure.item.entity.ItemEntity;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -18,12 +18,12 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
     @Override
-    public ItemModel getById(Long id) {
+    public Item getById(Long id) {
         return ItemInfrastructureMapper.entityToModel(jpaRepository.findById(id).get());
     }
 
     @Override
-    public List<ItemModel> getAll() {
+    public List<Item> getAll() {
         List<ItemEntity> itemsEntity = jpaRepository.findAll();
         return itemsEntity.stream()
                 .map(ItemInfrastructureMapper::entityToModel)
@@ -31,16 +31,16 @@ public class ItemRepositoryImpl implements ItemRepository {
     }
 
     @Override
-    public ItemModel create(ItemModel itemModel) {
-        ItemEntity newItem = ItemInfrastructureMapper.modelToEntity(itemModel);
+    public Item create(Item item) {
+        ItemEntity newItem = ItemInfrastructureMapper.modelToEntity(item);
         jpaRepository.save(newItem);
 
         return ItemInfrastructureMapper.entityToModel(newItem);
     }
 
     @Override
-    public ItemModel update(ItemModel itemModel) {
-        ItemEntity updatingItem = ItemInfrastructureMapper.modelToEntity(itemModel);
+    public Item update(Item item) {
+        ItemEntity updatingItem = ItemInfrastructureMapper.modelToEntity(item);
         jpaRepository.save(updatingItem);
 
         return ItemInfrastructureMapper.entityToModel(updatingItem);
