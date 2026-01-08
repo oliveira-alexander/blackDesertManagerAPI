@@ -1,7 +1,7 @@
 package com.bdomanager.infrastructure.adapt.repositories.impl;
 
-import com.bdomanager.domain.models.Item;
-import com.bdomanager.domain.repositories.ItemRepository;
+import com.bdomanager.domain.item.model.Item;
+import com.bdomanager.Application.repositories.ItemRepository;
 import com.bdomanager.infrastructure.adapt.repositories.ItemJPARepository;
 import com.bdomanager.infrastructure.entities.ItemEntity;
 import com.bdomanager.utils.mappers.ItemMapper;

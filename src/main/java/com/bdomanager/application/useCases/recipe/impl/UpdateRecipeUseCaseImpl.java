@@ -2,8 +2,8 @@ package com.bdomanager.application.useCases.recipe.impl;
 
 import com.bdomanager.application.commands.recipe.UpdateRecipeCommand;
 import com.bdomanager.application.useCases.recipe.UpdateRecipeUseCase;
-import com.bdomanager.domain.models.Recipe;
-import com.bdomanager.domain.repositories.RecipeRepository;
+import com.bdomanager.domain.recipe.model.Recipe;
+import com.bdomanager.Application.repositories.RecipeRepository;
 import com.bdomanager.utils.mappers.RecipeMapper;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,6 @@
-package com.bdomanager.domain.models;
+package com.bdomanager.domain.recipeItem.model;
+
+import com.bdomanager.domain.item.model.Item;
 
 public class RecipeItem {
     private Long id;

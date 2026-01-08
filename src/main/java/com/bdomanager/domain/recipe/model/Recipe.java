@@ -1,12 +1,13 @@
-package com.bdomanager.domain.models;
+package com.bdomanager.domain.recipe.model;
 
-import java.util.ArrayList;
+import com.bdomanager.domain.recipeItem.model.RecipeItem;
+
 import java.util.List;
 
 public class Recipe {
     private Long id;
     private String description;
-    private List<RecipeItem> items = new ArrayList<>();
+    private List<RecipeItem> items;
 
     public Recipe(Long id,
                   String description,
@@ -23,7 +24,6 @@ public class Recipe {
         this.description = description;
         this.items = items;
     }
-
 
     public Long getId() {
         return id;

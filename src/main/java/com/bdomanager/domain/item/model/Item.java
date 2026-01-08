@@ -1,4 +1,4 @@
-package com.bdomanager.domain.models;
+package com.bdomanager.domain.item.model;
 
 public class Item {
     private Long id;

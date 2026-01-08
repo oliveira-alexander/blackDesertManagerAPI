@@ -1,6 +1,6 @@
 package com.bdomanager.application.useCases.item;
 
-import com.bdomanager.domain.models.Item;
+import com.bdomanager.domain.item.model.Item;
 
 import java.util.List;
 
