@@ -1,16 +1,15 @@
 package com.bdomanager.infrastructure.recipe.mapper;
 
+import com.bdomanager.application.recipe.commands.RecipeItemCommand;
 import com.bdomanager.infrastructure.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.infrastructure.recipe.dtos.RecipeItemOutputDTO;
 import com.bdomanager.infrastructure.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.infrastructure.recipe.entity.RecipeEntity;
-import com.bdomanager.infrastructure.recipeItem.dtos.RecipeItemOutputDTO;
-import com.bdomanager.infrastructure.recipeItem.mapper.RecipeItemInfrastructureMapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
-import com.bdomanager.application.recipeItem.commands.CreateRecipeItemCommand;
-import com.bdomanager.application.recipeItem.commands.UpdateRecipeItemCommand;
 import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.domain.recipeItem.RecipeItem;
+import com.bdomanager.infrastructure.recipe.entity.RecipeItemEmbeddable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,41 +19,37 @@ public class RecipeInfrastructureMapper {
     // DTO -> Command
 
         public static CreateRecipeCommand dtoToCreateCommand(RecipeInputDTO dto){
-            List<CreateRecipeItemCommand> itemsCommand =
-                dto.items()
-                   .stream()
-                   .map(RecipeItemInfrastructureMapper::dtoToCreateCommand)
-                   .toList();
+            List<RecipeItemCommand> items = new ArrayList<>();
 
-            return new CreateRecipeCommand(dto.description(), itemsCommand);
+            dto.items().forEach(item -> items.add(new RecipeItemCommand(item.itemId(), item.quantity())));
+
+            return new CreateRecipeCommand(dto.description(), items);
         }
 
         public static UpdateRecipeCommand dtoToUpdateCommand(RecipeInputDTO dto){
-            List<UpdateRecipeItemCommand> itemsCommand =
-                    dto.items()
-                            .stream()
-                            .map(RecipeItemInfrastructureMapper::dtoToUpdateCommand)
-                            .toList();
+            List<RecipeItemCommand> items = new ArrayList<>();
 
-            return new UpdateRecipeCommand(dto.id(), dto.description(), itemsCommand);
+            dto.items().forEach(item -> items.add(new RecipeItemCommand(item.itemId(), item.quantity())));
+
+            return new UpdateRecipeCommand(dto.id(), dto.description(), items);
         }
 
         // Entity -> Model
 
             public static Recipe entityToModel(RecipeEntity entity){
-                List<RecipeItem> itemsModel = new ArrayList<>();
+                List<RecipeItem> items = new ArrayList<>();
 
-                entity.getItems().forEach(item -> {
-                    itemsModel.add(new RecipeItem(item.getId(), item.getId(), item.getQuantity()));
-                });
+                entity.getItems().forEach(item -> items.add(new RecipeItem(item.getItemId(), item.getQuantity())));
 
-                return new Recipe(entity.getId(), entity.getDescription(), itemsModel);
+                return new Recipe(entity.getId(), entity.getDescription(), items);
             }
 
         // Model -> DTO
 
             public static RecipeOutputDTO modelToDTO(Recipe model){
-                List<RecipeItemOutputDTO> items = model.getItems().stream().map(RecipeItemInfrastructureMapper::modelToDTO).toList();
+                List<RecipeItemOutputDTO> items = new ArrayList<>();
+
+                model.getItems().forEach(item -> items.add(new RecipeItemOutputDTO(item.getIdItem(), item.getQuantity())));
 
                 return new RecipeOutputDTO(model.getId(), model.getDescription(), items);
             }

@@ -9,43 +9,47 @@ public class Recipe {
     private String description;
     private List<RecipeItem> items;
 
-    public Recipe(Long id,
-                  String description,
-                  List<RecipeItem> items)
-    {
-        this.id = id;
-        this.description = description;
-        this.items = items;
-    }
+    // Constructors
 
-    public Recipe(String description,
-                  List<RecipeItem> items)
-    {
-        this.description = description;
-        this.items = items;
-    }
+        public Recipe(Long id,
+                      String description,
+                      List<RecipeItem> items)
+        {
+            this.id = id;
+            this.description = description;
+            this.items = items;
+        }
 
-    public Long getId() {
-        return id;
-    }
+        public Recipe(String description,
+                      List<RecipeItem> items)
+        {
+            this.description = description;
+            this.items = items;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // Getters & Setters
 
-    public String getDescription() {
-        return description;
-    }
+        public Long getId() {
+            return id;
+        }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-    public List<RecipeItem> getItems() {
-        return items;
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    public void setItems(List<RecipeItem> items) {
-        this.items = items;
-    }
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public List<RecipeItem> getItems() {
+            return items;
+        }
+
+        public void setItems(List<RecipeItem> items) {
+            this.items = items;
+        }
 }

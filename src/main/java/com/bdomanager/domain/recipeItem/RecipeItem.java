@@ -1,46 +1,32 @@
 package com.bdomanager.domain.recipeItem;
 
 public class RecipeItem {
-    private Long id;
     private Long idItem;
     private int quantity;
 
-    public RecipeItem(Long id,
-                      Long idItem,
-                      int quantity){
-        this.id = id;
-        this.idItem = idItem;
-        this.quantity = quantity;
-    }
+    // Constructors
 
+        public RecipeItem(Long idItem,
+                          int quantity){
+            this.idItem = idItem;
+            this.quantity = quantity;
+        }
 
-    public RecipeItem(Long idItem,
-                      int quantity){
-        this.idItem = idItem;
-        this.quantity = quantity;
-    }
+    // Getters & Setters
 
-    public Long getId() {
-        return id;
-    }
+        public int getQuantity() {
+            return quantity;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
 
-    public int getQuantity() {
-        return quantity;
-    }
+        public Long getIdItem() {
+            return idItem;
+        }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        public void setIdItem(Long idItem) {
+            this.idItem = idItem;
+        }
     }
-
-    public Long getIdItem() {
-        return idItem;
-    }
-
-    public void setIdItem(Long idItem) {
-        this.idItem = idItem;
-    }
-}
