@@ -1,20 +1,13 @@
 package com.bdomanager.infrastructure.item.entity;
 
-import com.bdomanager.infrastructure.recipeItem.entity.RecipeItemEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "Items")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class ItemEntity {
@@ -27,10 +20,6 @@ public class ItemEntity {
     private float marketPrice;
 
     private float productionCost;
-
-    @OneToMany(mappedBy = "item")
-    @JsonIgnore
-    private List<RecipeItemEntity> items = new ArrayList<>();
 
     public ItemEntity(String description,
                       float marketPrice,

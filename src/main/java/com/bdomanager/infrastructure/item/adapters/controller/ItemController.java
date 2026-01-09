@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/v1/item")
 public class ItemController {
 
     private final CreateItemUseCase createItemUseCase;
