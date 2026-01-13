@@ -34,6 +34,10 @@ O frontend está disponível no projeto blackDesertManagerWeb.
       <td>MySQL Community Edition</td>
       <td>Banco de dados confiável em sua versão gratuita.</td>
     </tr>
+    <tr>
+      <td>Swagger OpenAPI</td>
+      <td>Interface amigável de documentação e testes de endpoints / recursos da API</td>
+    </tr>
   </tbody>
 </table>
 
@@ -83,6 +87,14 @@ tornando as implementações de fácil compreensão e manutenibilidade.</p>
       <td>Model Mapping</td>
       <td>Cria uma classe auxiliar para cada camada para transformar dados entre objetos do mesmo modelo. Por exemplo, transforma um DTO em um Command, permitindo que um use case na Application possa
         ser executado.</td>
+    </tr>
+    <tr>
+      <td>Validation</td>
+      <td>Através de Annotations do Hibernate, realiza a validação de Beans e trata a entrada de dados que a API recebe em requisições, barrando entradas de dados indevidas e poupando processamento futuro</td>
+    </tr>
+    <tr>
+      <td>Global Validator Handler</td>
+      <td>Centraliza os tratamentos de Validations e devolve em um pattern de envelope padronizado às requisições.</td>
     </tr>
   </tbody>
 </table>
