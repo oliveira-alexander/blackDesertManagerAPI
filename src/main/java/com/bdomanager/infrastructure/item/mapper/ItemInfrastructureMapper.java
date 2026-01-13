@@ -1,7 +1,7 @@
 package com.bdomanager.infrastructure.item.mapper;
 
-import com.bdomanager.infrastructure.item.dtos.ItemInputDTO;
-import com.bdomanager.infrastructure.item.dtos.ItemOutputDTO;
+import com.bdomanager.application.item.dtos.ItemInputDTO;
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.infrastructure.item.entity.ItemEntity;
 import com.bdomanager.application.item.commands.CreateItemCommand;
 import com.bdomanager.application.item.commands.UpdateItemCommand;

@@ -1,10 +1,11 @@
 package com.bdomanager.infrastructure.recipe.adapters.controller;
 
-import com.bdomanager.infrastructure.recipe.dtos.RecipeInputDTO;
-import com.bdomanager.infrastructure.recipe.dtos.RecipeOutputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.infrastructure.recipe.mapper.RecipeInfrastructureMapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.useCases.*;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class RecipeController {
     }
 
     @PostMapping
-    public RecipeOutputDTO create(@RequestBody RecipeInputDTO dto){
+    public RecipeOutputDTO create(@RequestBody @Valid RecipeInputDTO dto){
         CreateRecipeCommand command = RecipeInfrastructureMapper.dtoToCreateCommand(dto);
         return RecipeInfrastructureMapper.modelToDTO(createRecipeUseCase.execute(command));
     }
@@ -52,7 +53,7 @@ public class RecipeController {
     }
 
     @PutMapping
-    public RecipeOutputDTO update(@RequestBody RecipeInputDTO dto){
+    public RecipeOutputDTO update(@RequestBody @Valid RecipeInputDTO dto){
         return RecipeInfrastructureMapper.modelToDTO(
                 updateRecipeUseCase.execute(
                         RecipeInfrastructureMapper.dtoToUpdateCommand(dto)

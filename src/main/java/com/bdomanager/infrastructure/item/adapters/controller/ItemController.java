@@ -1,11 +1,12 @@
 package com.bdomanager.infrastructure.item.adapters.controller;
 
-import com.bdomanager.infrastructure.item.dtos.ItemInputDTO;
-import com.bdomanager.infrastructure.item.dtos.ItemOutputDTO;
+import com.bdomanager.application.item.dtos.ItemInputDTO;
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.infrastructure.item.mapper.ItemInfrastructureMapper;
 import com.bdomanager.application.item.commands.CreateItemCommand;
 import com.bdomanager.application.item.commands.UpdateItemCommand;
 import com.bdomanager.application.item.useCases.*;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class ItemController {
     }
 
     @PostMapping
-    public ItemOutputDTO create (@RequestBody ItemInputDTO dto){
+    public ItemOutputDTO create (@RequestBody @Valid ItemInputDTO dto){
         CreateItemCommand command = ItemInfrastructureMapper.dtoToCreateCommand(dto);
         return ItemInfrastructureMapper.modelToDTO(createItemUseCase.execute(command));
     }
@@ -58,7 +59,7 @@ public class ItemController {
     }
 
     @PutMapping
-    public ItemOutputDTO update(@RequestBody ItemInputDTO updatingItem){
+    public ItemOutputDTO update(@RequestBody @Valid ItemInputDTO updatingItem){
         UpdateItemCommand command = ItemInfrastructureMapper.dtoToUpdateCommand(updatingItem);
         return ItemInfrastructureMapper.modelToDTO(updateItemUseCase.execute(command));
     }

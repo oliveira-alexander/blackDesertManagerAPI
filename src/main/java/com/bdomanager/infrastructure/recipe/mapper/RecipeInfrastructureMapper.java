@@ -1,15 +1,14 @@
 package com.bdomanager.infrastructure.recipe.mapper;
 
 import com.bdomanager.application.recipe.commands.RecipeItemCommand;
-import com.bdomanager.infrastructure.recipe.dtos.RecipeInputDTO;
-import com.bdomanager.infrastructure.recipe.dtos.RecipeItemOutputDTO;
-import com.bdomanager.infrastructure.recipe.dtos.RecipeOutputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeItemOutputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.infrastructure.recipe.entity.RecipeEntity;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
 import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.domain.recipeItem.RecipeItem;
-import com.bdomanager.infrastructure.recipe.entity.RecipeItemEmbeddable;
 
 import java.util.ArrayList;
 import java.util.List;
