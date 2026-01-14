@@ -4,6 +4,8 @@
 <p>Gerenciador que auxilia jogadores focados em profissões (LifeSkills) a produzir com consistência,
 analisar custos e maximizar lucro de forma transparente.</p>
 
+<h2> Projeto: <a href="https://github.com/users/oliveira-alexander/projects/4"> Link</a></h2>
+
 <hr>
 
 <h2>ℹ️ Informação importante:</h2>
