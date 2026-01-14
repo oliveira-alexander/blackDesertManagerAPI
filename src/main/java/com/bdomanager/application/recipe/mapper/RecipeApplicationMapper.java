@@ -42,14 +42,4 @@ public class RecipeApplicationMapper {
                               command.description(),
                               items);
         }
-
-    // Model -> DTO
-
-        public static RecipeOutputDTO modelToDTO(Recipe model){
-            List<RecipeItemOutputDTO> items = new ArrayList<>();
-
-            model.getItems().forEach(item -> items.add(new RecipeItemOutputDTO(item.getIdItem(), item.getQuantity())));
-
-            return new RecipeOutputDTO(model.getId(), model.getDescription(), items);
-        }
 }
