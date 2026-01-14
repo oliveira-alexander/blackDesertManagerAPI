@@ -1,5 +1,5 @@
 package com.bdomanager.application.recipe.dtos;
 
-public record RecipeItemOutputDTO(Long idItem,
+public record RecipeItemOutputDTO(RecipeItemItemDTO item,
                                   int quantity) {
 }
