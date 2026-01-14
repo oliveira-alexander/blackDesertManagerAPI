@@ -1,7 +1,8 @@
 package com.bdomanager.application.recipe.useCases;
 
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.domain.recipe.Recipe;
 
 public interface GetRecipeByIdUseCase {
-    Recipe execute(Long id);
+    RecipeOutputDTO execute(Long id);
 }

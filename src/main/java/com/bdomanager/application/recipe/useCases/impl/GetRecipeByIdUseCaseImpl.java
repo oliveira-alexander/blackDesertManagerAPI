@@ -1,5 +1,7 @@
 package com.bdomanager.application.recipe.useCases.impl;
 
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
+import com.bdomanager.application.recipe.mapper.RecipeApplicationMapper;
 import com.bdomanager.application.recipe.useCases.GetRecipeByIdUseCase;
 import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.application.recipe.adapters.repository.RecipeRepository;
@@ -15,7 +17,7 @@ public class GetRecipeByIdUseCaseImpl implements GetRecipeByIdUseCase {
     }
 
     @Override
-    public Recipe execute(Long id) {
-        return repository.getById(id);
+    public RecipeOutputDTO execute(Long id) {
+        return RecipeApplicationMapper.modelToDTO(repository.getById(id));
     }
 }

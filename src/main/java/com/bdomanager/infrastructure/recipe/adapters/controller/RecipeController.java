@@ -1,6 +1,7 @@
 package com.bdomanager.infrastructure.recipe.adapters.controller;
 
-import com.bdomanager.application.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.application.recipe.dtos.CreateRecipeDTO;
+import com.bdomanager.application.recipe.dtos.UpdateRecipeDTO;
 import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.infrastructure.recipe.mapper.RecipeInfrastructureMapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
@@ -38,9 +39,9 @@ public class RecipeController {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseEnvelope<RecipeOutputDTO>> create(@RequestBody @Valid RecipeInputDTO dto){
+    public ResponseEntity<ResponseEnvelope<RecipeOutputDTO>> create(@RequestBody @Valid CreateRecipeDTO dto){
         CreateRecipeCommand command = RecipeInfrastructureMapper.dtoToCreateCommand(dto);
-        RecipeOutputDTO output = RecipeInfrastructureMapper.modelToDTO(createRecipeUseCase.execute(command));
+        RecipeOutputDTO output =createRecipeUseCase.execute(command);
 
         ResponseEnvelope<RecipeOutputDTO> response = new ResponseEnvelope<>(LocalDateTime.now(),
                                                                             output, "Receita criada com sucesso!");
@@ -50,10 +51,7 @@ public class RecipeController {
 
     @GetMapping
     public ResponseEntity<ResponseEnvelope<List<RecipeOutputDTO>>> getAll(){
-        List<RecipeOutputDTO> output =  getAllRecipesUseCase.execute()
-                                                            .stream()
-                                                            .map(RecipeInfrastructureMapper::modelToDTO)
-                                                            .toList();
+        List<RecipeOutputDTO> output =  getAllRecipesUseCase.execute();
 
         ResponseEnvelope<List<RecipeOutputDTO>> response = new ResponseEnvelope<>(LocalDateTime.now(),
                 output, null);
@@ -63,7 +61,7 @@ public class RecipeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseEnvelope<RecipeOutputDTO>> getById(@PathVariable Long id){
-        RecipeOutputDTO output = RecipeInfrastructureMapper.modelToDTO(getRecipeByIdUseCase.execute(id));
+        RecipeOutputDTO output = getRecipeByIdUseCase.execute(id);
 
         ResponseEnvelope<RecipeOutputDTO> response = new ResponseEnvelope<>(LocalDateTime.now(),
                 output, null);
@@ -72,12 +70,8 @@ public class RecipeController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseEnvelope<RecipeOutputDTO>> update(@RequestBody @Valid RecipeInputDTO dto){
-        RecipeOutputDTO output =  RecipeInfrastructureMapper.modelToDTO(
-                updateRecipeUseCase.execute(
-                        RecipeInfrastructureMapper.dtoToUpdateCommand(dto)
-                )
-        );
+    public ResponseEntity<ResponseEnvelope<RecipeOutputDTO>> update(@RequestBody @Valid UpdateRecipeDTO dto){
+        RecipeOutputDTO output = updateRecipeUseCase.execute(RecipeInfrastructureMapper.dtoToUpdateCommand(dto));
 
         ResponseEnvelope<RecipeOutputDTO> response = new ResponseEnvelope<>(LocalDateTime.now(),
                 output, "Receita atualizada com sucesso!");

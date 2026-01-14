@@ -1,7 +1,8 @@
 package com.bdomanager.application.item.useCases;
 
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.domain.item.Item;
 
 public interface GetItemByIdUseCase {
-    Item execute(Long id);
+    ItemOutputDTO execute(Long id);
 }

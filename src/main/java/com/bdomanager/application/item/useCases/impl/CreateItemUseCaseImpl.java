@@ -1,6 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
 import com.bdomanager.application.item.commands.CreateItemCommand;
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.application.item.mapper.ItemApplicationMapper;
 import com.bdomanager.application.item.useCases.CreateItemUseCase;
 import com.bdomanager.domain.item.Item;
@@ -17,8 +18,8 @@ public class CreateItemUseCaseImpl implements CreateItemUseCase {
     }
 
     @Override
-    public Item execute(CreateItemCommand command) {
+    public ItemOutputDTO execute(CreateItemCommand command) {
         Item item = ItemApplicationMapper.createCommandToModel(command);
-        return repository.create(item);
+        return ItemApplicationMapper.modelToDTO(repository.create(item));
     }
 }

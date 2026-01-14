@@ -1,6 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
 import com.bdomanager.application.item.commands.UpdateItemCommand;
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.application.item.mapper.ItemApplicationMapper;
 import com.bdomanager.application.item.useCases.UpdateItemUseCase;
 import com.bdomanager.domain.item.Item;
@@ -17,8 +18,8 @@ public class UpdateItemUseCaseImpl implements UpdateItemUseCase {
     }
 
     @Override
-    public Item execute(UpdateItemCommand command) {
+    public ItemOutputDTO execute(UpdateItemCommand command) {
         Item item = ItemApplicationMapper.updateCommandToModel(command);
-        return this.repository.update(item);
+        return ItemApplicationMapper.modelToDTO(this.repository.update(item));
     }
 }

@@ -1,8 +1,9 @@
 package com.bdomanager.application.recipe.useCases;
 
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.domain.recipe.Recipe;
 
 public interface CreateRecipeUseCase {
-    Recipe execute(CreateRecipeCommand command);
+    RecipeOutputDTO execute(CreateRecipeCommand command);
 }

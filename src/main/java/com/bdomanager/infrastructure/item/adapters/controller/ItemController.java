@@ -1,6 +1,7 @@
 package com.bdomanager.infrastructure.item.adapters.controller;
 
-import com.bdomanager.application.item.dtos.ItemInputDTO;
+import com.bdomanager.application.item.dtos.CreateItemDTO;
+import com.bdomanager.application.item.dtos.UpdateItemDTO;
 import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.infrastructure.item.mapper.ItemInfrastructureMapper;
 import com.bdomanager.application.item.commands.CreateItemCommand;
@@ -8,7 +9,6 @@ import com.bdomanager.application.item.commands.UpdateItemCommand;
 import com.bdomanager.application.item.useCases.*;
 import com.bdomanager.infrastructure.utils.response.ResponseEnvelope;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +40,9 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseEnvelope<ItemOutputDTO>>  create (@RequestBody @Valid ItemInputDTO dto){
+    public ResponseEntity<ResponseEnvelope<ItemOutputDTO>>  create (@RequestBody @Valid CreateItemDTO dto){
         CreateItemCommand command = ItemInfrastructureMapper.dtoToCreateCommand(dto);
-        ItemOutputDTO output = ItemInfrastructureMapper.modelToDTO(createItemUseCase.execute(command));
+        ItemOutputDTO output = createItemUseCase.execute(command);
 
         ResponseEnvelope<ItemOutputDTO> response = new ResponseEnvelope<ItemOutputDTO>(LocalDateTime.now(),
                                                                         output,
@@ -53,11 +53,7 @@ public class ItemController {
 
     @GetMapping
     public ResponseEntity<ResponseEnvelope<List<ItemOutputDTO>>> getAll(){
-
-        List<ItemOutputDTO> output = getAllItemsUseCase.execute()
-                                                       .stream()
-                                                       .map(ItemInfrastructureMapper::modelToDTO)
-                                                       .toList();
+        List<ItemOutputDTO> output = getAllItemsUseCase.execute();
 
         ResponseEnvelope<List<ItemOutputDTO>> response = new ResponseEnvelope<>(LocalDateTime.now(),
                                                                                 output,
@@ -68,7 +64,7 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseEnvelope<ItemOutputDTO>> getById(@PathVariable("id") Long id){
-        ItemOutputDTO item = ItemInfrastructureMapper.modelToDTO(getByIdUseCase.execute(id));
+        ItemOutputDTO item = getByIdUseCase.execute(id);
 
         ResponseEnvelope<ItemOutputDTO> output = new ResponseEnvelope<>(LocalDateTime.now(),
                                                                         item,
@@ -89,9 +85,9 @@ public class ItemController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseEnvelope<ItemOutputDTO>> update(@RequestBody @Valid ItemInputDTO updatingItem){
+    public ResponseEntity<ResponseEnvelope<ItemOutputDTO>> update(@RequestBody @Valid UpdateItemDTO updatingItem){
         UpdateItemCommand command = ItemInfrastructureMapper.dtoToUpdateCommand(updatingItem);
-        ItemOutputDTO output = ItemInfrastructureMapper.modelToDTO(updateItemUseCase.execute(command));
+        ItemOutputDTO output = updateItemUseCase.execute(command);
 
         ResponseEnvelope<ItemOutputDTO> response = new ResponseEnvelope<>(LocalDateTime.now(),
                                                                           output,

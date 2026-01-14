@@ -1,5 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
+import com.bdomanager.application.item.mapper.ItemApplicationMapper;
 import com.bdomanager.application.item.useCases.GetItemByIdUseCase;
 import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
@@ -15,7 +17,7 @@ public class GetItemByIdUseCaseImpl implements GetItemByIdUseCase {
     }
 
     @Override
-    public Item execute(Long id) {
-        return repository.getById(id);
+    public ItemOutputDTO execute(Long id) {
+        return ItemApplicationMapper.modelToDTO(repository.getById(id));
     }
 }
