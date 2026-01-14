@@ -100,6 +100,32 @@ tornando as implementações de fácil compreensão e manutenibilidade.</p>
 </table>
 
 <hr>
+<h2>✨ Features</h2>
+
+<ul>
+  <li>
+    <h3>Swagger / OpenAPI</h3>
+    <p>Através do Swagger / OpenAPI é possível ter acesso a documentação de recursos e endpoints da API</p>
+    <p>Endereço: <a href="http://localhost:3500/swagger-ui/index.html">Link</a></p>
+    <img src="https://github.com/user-attachments/assets/067736aa-1f28-4766-af02-532972be4f9d" width="1816" height="825" alt="image" >
+    <h4>Como utilizar:</h4>
+    <ul>
+      <li>Selecione uma das requisições</li>
+      <li>Clique em "Try it out"</li>
+      <li>Caso a requisição solicite algum parâmetro, informe-o</li>
+      <li>Ou caso a requisição solicite o preenchimento de dados, informe-os: <br>
+        <img width="1785" height="788" alt="image" src="https://github.com/user-attachments/assets/9e50a04d-f263-4329-8ce2-0b4174ce5991" />
+      </li>
+      <li>Em seguida, clique em "Execute" e aguarde o término da requisição</li>
+      <li>Ao término da resposta da requisição, verifique se a API retornou alguma informação, ou apenas os dados padrão: <br>
+        <img width="1768" height="584" alt="image" src="https://github.com/user-attachments/assets/7de4a215-8b83-4907-b066-6590fffdb115" />
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+<hr>
 <h2>⚙️ Roadmap estipulado</h2>
 <ul>
   <li><p>Transformação para arquitetura hexagonal em microsserviços, separando Item / Receita / ReceitaItem</p></li>
