@@ -1,13 +1,10 @@
 package com.bdomanager.application.item.dtos;
 
-import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record ItemInputDTO(
-        @Nullable
-        Long id,
+public record CreateItemDTO(
 
         @NotBlank(message = "Informe a descrição do item!")
         @Size(min = 3, message = "A descrição deve ter pelo menos 3 caracteres!")
@@ -17,5 +14,5 @@ public record ItemInputDTO(
         float marketPrice,
 
         @Min(value = 0, message = "Informe um valor positivo para o custo de produção!")
-        float productionCost) {
-}
+        float productionCost)
+{}

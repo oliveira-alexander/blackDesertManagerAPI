@@ -1,6 +1,7 @@
 package com.bdomanager.application.recipe.useCases.impl;
 
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.application.recipe.mapper.RecipeApplicationMapper;
 import com.bdomanager.application.recipe.useCases.UpdateRecipeUseCase;
 import com.bdomanager.domain.recipe.Recipe;
@@ -17,7 +18,7 @@ public class UpdateRecipeUseCaseImpl implements UpdateRecipeUseCase {
     }
 
     @Override
-    public Recipe execute(UpdateRecipeCommand command) {
-        return repository.update(RecipeApplicationMapper.updateCommandToModel(command));
+    public RecipeOutputDTO execute(UpdateRecipeCommand command) {
+        return RecipeApplicationMapper.modelToDTO(repository.update(RecipeApplicationMapper.updateCommandToModel(command)));
     }
 }

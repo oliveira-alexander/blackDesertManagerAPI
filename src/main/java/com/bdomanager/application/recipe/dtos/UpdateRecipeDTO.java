@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-public record RecipeInputDTO(
+public record UpdateRecipeDTO(
         @Nullable
         Long id,
 
@@ -17,5 +17,5 @@ public record RecipeInputDTO(
 
         @NotNull(message = "A lista de itens não pode estar em branco!")
         @Size(min        = 3, message = "A quantidade de itens deve conter pelo menos 3 itens!")
-        List<RecipeItemInputDTO> items) {
+        List<UpdateRecipeItemDTO> items) {
 }

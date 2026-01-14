@@ -1,7 +1,8 @@
 package com.bdomanager.infrastructure.recipe.mapper;
 
 import com.bdomanager.application.recipe.commands.RecipeItemCommand;
-import com.bdomanager.application.recipe.dtos.RecipeInputDTO;
+import com.bdomanager.application.recipe.dtos.CreateRecipeDTO;
+import com.bdomanager.application.recipe.dtos.UpdateRecipeDTO;
 import com.bdomanager.application.recipe.dtos.RecipeItemOutputDTO;
 import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.infrastructure.recipe.entity.RecipeEntity;
@@ -17,7 +18,7 @@ public class RecipeInfrastructureMapper {
 
     // DTO -> Command
 
-        public static CreateRecipeCommand dtoToCreateCommand(RecipeInputDTO dto){
+        public static CreateRecipeCommand dtoToCreateCommand(CreateRecipeDTO dto){
             List<RecipeItemCommand> items = new ArrayList<>();
 
             dto.items().forEach(item -> items.add(new RecipeItemCommand(item.itemId(), item.quantity())));
@@ -25,7 +26,7 @@ public class RecipeInfrastructureMapper {
             return new CreateRecipeCommand(dto.description(), items);
         }
 
-        public static UpdateRecipeCommand dtoToUpdateCommand(RecipeInputDTO dto){
+        public static UpdateRecipeCommand dtoToUpdateCommand(UpdateRecipeDTO dto){
             List<RecipeItemCommand> items = new ArrayList<>();
 
             dto.items().forEach(item -> items.add(new RecipeItemCommand(item.itemId(), item.quantity())));
@@ -43,14 +44,6 @@ public class RecipeInfrastructureMapper {
                 return new Recipe(entity.getId(), entity.getDescription(), items);
             }
 
-        // Model -> DTO
 
-            public static RecipeOutputDTO modelToDTO(Recipe model){
-                List<RecipeItemOutputDTO> items = new ArrayList<>();
-
-                model.getItems().forEach(item -> items.add(new RecipeItemOutputDTO(item.getIdItem(), item.getQuantity())));
-
-                return new RecipeOutputDTO(model.getId(), model.getDescription(), items);
-            }
 }
 

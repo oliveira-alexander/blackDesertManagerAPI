@@ -1,6 +1,7 @@
 package com.bdomanager.infrastructure.item.mapper;
 
-import com.bdomanager.application.item.dtos.ItemInputDTO;
+import com.bdomanager.application.item.dtos.CreateItemDTO;
+import com.bdomanager.application.item.dtos.UpdateItemDTO;
 import com.bdomanager.application.item.dtos.ItemOutputDTO;
 import com.bdomanager.infrastructure.item.entity.ItemEntity;
 import com.bdomanager.application.item.commands.CreateItemCommand;
@@ -11,18 +12,18 @@ public class ItemInfrastructureMapper {
 
     // DTO -> Command
 
-        public static CreateItemCommand dtoToCreateCommand(ItemInputDTO dto){
-            return new CreateItemCommand(dto.description(),
-                                         dto.marketPrice(),
-                                         dto.productionCost());
-        }
+    public static CreateItemCommand dtoToCreateCommand(CreateItemDTO dto){
+        return new CreateItemCommand(dto.description(),
+                dto.marketPrice(),
+                dto.productionCost());
+    }
 
-        public static UpdateItemCommand dtoToUpdateCommand(ItemInputDTO dto){
-            return new UpdateItemCommand(dto.id(),
-                                         dto.description(),
-                                         dto.marketPrice(),
-                                         dto.productionCost());
-        }
+    public static UpdateItemCommand dtoToUpdateCommand(UpdateItemDTO dto){
+        return new UpdateItemCommand(dto.id(),
+                dto.description(),
+                dto.marketPrice(),
+                dto.productionCost());
+    }
 
     // Model -> Entity
 
@@ -40,14 +41,5 @@ public class ItemInfrastructureMapper {
                                  entity.getDescription(),
                                  entity.getMarketPrice(),
                                  entity.getProductionCost());
-        }
-
-    // Model -> DTO (Output)
-
-        public static ItemOutputDTO modelToDTO(Item model){
-            return new ItemOutputDTO(model.getId(),
-                                     model.getDescription(),
-                                     model.getMarketPrice(),
-                                     model.getProductionCost());
         }
 }

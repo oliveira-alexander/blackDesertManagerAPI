@@ -3,6 +3,8 @@ package com.bdomanager.application.recipe.mapper;
 import com.bdomanager.application.recipe.commands.CreateRecipeCommand;
 import com.bdomanager.application.recipe.commands.RecipeItemCommand;
 import com.bdomanager.application.recipe.commands.UpdateRecipeCommand;
+import com.bdomanager.application.recipe.dtos.RecipeItemOutputDTO;
+import com.bdomanager.application.recipe.dtos.RecipeOutputDTO;
 import com.bdomanager.domain.recipe.Recipe;
 import com.bdomanager.domain.recipeItem.RecipeItem;
 
@@ -39,5 +41,15 @@ public class RecipeApplicationMapper {
             return new Recipe(command.id(),
                               command.description(),
                               items);
+        }
+
+    // Model -> DTO
+
+        public static RecipeOutputDTO modelToDTO(Recipe model){
+            List<RecipeItemOutputDTO> items = new ArrayList<>();
+
+            model.getItems().forEach(item -> items.add(new RecipeItemOutputDTO(item.getIdItem(), item.getQuantity())));
+
+            return new RecipeOutputDTO(model.getId(), model.getDescription(), items);
         }
 }

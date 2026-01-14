@@ -1,5 +1,7 @@
 package com.bdomanager.application.item.useCases.impl;
 
+import com.bdomanager.application.item.dtos.ItemOutputDTO;
+import com.bdomanager.application.item.mapper.ItemApplicationMapper;
 import com.bdomanager.application.item.useCases.GetAllItemsUseCase;
 import com.bdomanager.domain.item.Item;
 import com.bdomanager.application.item.adapters.repository.ItemRepository;
@@ -17,7 +19,9 @@ public class GetAllItemsUseCaseImpl implements GetAllItemsUseCase {
     }
 
     @Override
-    public List<Item> execute() {
-        return repository.getAll();
+    public List<ItemOutputDTO> execute() {
+        return repository.getAll().stream()
+                        .map(ItemApplicationMapper::modelToDTO)
+                        .toList();
     }
 }
